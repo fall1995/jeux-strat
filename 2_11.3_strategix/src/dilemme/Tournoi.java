@@ -15,6 +15,7 @@ public class Tournoi {
 	public static int  somB=0;
 	
 	
+	
 	public static int  somC=0;
 	public static int  somD=0;
 	
@@ -78,7 +79,16 @@ public class Tournoi {
 
 	}
 	
-	public String Gagnant() {
+	public int Gagnant() {
+		int indic=0;
+		for (int i = 0; i < sumScore.length; i++) {
+			if (sumScore[i]>sumScore[indic]) {
+				indic=i;
+			}
+			
+		}
+	return indic;
+		/*
 		int res1= Math.max(somA, somB);
 		int res2 = Math.max(somC, somD);
 		int max = Math.max(res1, res2);
@@ -92,10 +102,11 @@ public class Tournoi {
 			return StrategieMechante.nomStrat;
 		} else 
 		return null;
-		
+		*/
 	}
 
 	public void VisualiserResTournoi() {
+		/*
 		somme();
 		//afficher le tableau des confrontation et afficher le gagnants
 		
@@ -110,7 +121,7 @@ public class Tournoi {
 		System.out.println(StrategieMechante.nomStrat+"                       "+score.get(12)+"                     "+score.get(13)+ "             "+score.get(14)+"          "+score.get(15)+"         "+somD);
 		System.out.println();
 		System.out.println("Strategie gagnante du tournoi : "+Gagnant());
-		/*
+		
 		System.out.println();
 		if (sumA>sumB) {
 			System.out.println("Strategie gagnante du tournoi : "+strategies[0].getNom());

@@ -33,11 +33,11 @@ public class Main {
 		System.out.println("3 - MaStrategieDonnantDonnant");
 		System.out.println("4 - MaStrategieDonnantDonnantDur");
 		System.out.println("5 - MaStrategieDonnantDonnantSeuil");
-		System.out.println("Veuillez taper le numero de la strategi");
-		System.out.println("Veuillez taper le numero de la strategi");
-		System.out.println("Veuillez taper le numero de la strategi");
-		System.out.println("Veuillez taper le numero de la strategi");
-		System.out.println("Veuillez taper le numero de la strategi");
+		System.out.println("6 - StrategieGentille");
+		System.out.println("7 - StrategieMechante");
+		System.out.println("8 - StrategieDonnantDonnant");
+		System.out.println("9 - StrategieDonnantDonnantDur");
+		System.out.println("10 - StrategieDonnantDonnantSeuil");
 		System.out.println();
 		System.out.println("------------------------------------------");
 		System.out.println();
@@ -56,7 +56,8 @@ public class Main {
 			System.out.println(t.sumScore[i]);
 			
 		}
-		
+		int guagn= t.Gagnant();
+		System.out.println("strategie gagnate "+ strateg[guagn].getClass());
 		
 		/* TODO Auto-generated method stub
 		IStrategy S1 = new MaStrategieGentille() ;
