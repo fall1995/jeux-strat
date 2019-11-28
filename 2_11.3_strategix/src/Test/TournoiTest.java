@@ -16,14 +16,9 @@ class TournoiTest {
 	IStrategy S1 = new MaStrategieGentille() ;
 	IStrategy S2 = new MaStrategieMechante() ;
 	IStrategy[] str = {S1,S2};
-	int nbTours = 25;
+	int nbTours = 2;
 	Tournoi t = new Tournoi(str,nbTours);
 	
-	@Test
-	void testTournoi() {
-		Assert.assertNotSame(new MaStrategieMechante(), t);
-	}
-
 	@Test
 	void testStartTournoi() {
 		ArrayList<Integer> test = new ArrayList<Integer>();
@@ -33,50 +28,43 @@ class TournoiTest {
 	}
 
 	@Test
+	void testStretegieCorespo() {
+		IStrategy s1,s2,s3,s4;
+		s1 = t.StretegieCorespo(1);
+		s2 = t.StretegieCorespo(2);
+		s3 = t.StretegieCorespo(6);
+		s4 = t.StretegieCorespo(10);
+		Assert.assertEquals("MaStrategieGentille", s1.getClass().getSimpleName());
+	}
+
+	@Test
 	void testSomme() {
-		int n ;
-		for (int i=0;i<16;i++) {
-			t.setscore(i);
-		}
+		t.startTournoi();
+		int[] res =  {6,12};
 		t.somme();
-		Assert.assertEquals(6,t.getSomA());
-		Assert.assertEquals(22,t.getSomB());
-		Assert.assertEquals(38,t.getSomC());
-		Assert.assertEquals(54,t.getSomD());
+		Assert.assertEquals(res[0], t.sumScore[0]);
+		Assert.assertEquals(res[1], t.sumScore[1]);
+		//Assert.assertEquals(res[2], t.sumScore[2]);
+		//Assert.assertEquals(res[3], t.sumScore[3]);
+		//Assert.assertEquals(res[4], t.sumScore[4]);
 		
 	}
 
 	@Test
-	void testGagnant() {
-	Tournoi.somA = 10;
-	Tournoi.somB = 9;
-	Tournoi.somC = 8;
-	Tournoi.somD = 7;
-	String res =t.Gagnant();
-	Assert.assertEquals("Gentille",res);
-	
-	Tournoi.somA = 9;
-	Tournoi.somB = 10;
-	Tournoi.somC = 8;
-	Tournoi.somD = 7;
-	res =t.Gagnant();
-	Assert.assertEquals("Mechante",res);	
-	
-	Tournoi.somA = 9;
-	Tournoi.somB = 8;
-	Tournoi.somC = 10;
-	Tournoi.somD = 7;
-	res =t.Gagnant();
-	Assert.assertEquals("Gentille",res);
-	
-	Tournoi.somA = 9;
-	Tournoi.somB = 7;
-	Tournoi.somC = 8;
-	Tournoi.somD = 10;
-	res =t.Gagnant();
-	Assert.assertEquals("Mechante",res);
+	void testIndiceGagnant() {
+		int[] res =  {6,12};
+		t.startTournoi();
+		t.somme();
+		int ind = t.IndiceGagnant();
+		Assert.assertEquals(1, ind);
 	}
-	
+
+	@Test
+	void testCorrespondance() {
+		fail("Not yet implemented");
+	}
+
 	
 
+	
 }

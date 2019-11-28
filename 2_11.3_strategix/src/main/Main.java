@@ -52,27 +52,13 @@ public class Main {
 		
 		Tournoi t = new Tournoi(strateg, nbTours);
 		t.startTournoi();
-		t.somme();
-		for (int i =0; i < strateg.length; i++) {
-			System.out.println(t.sumScore[i]);
-			
-		}
-		
-		
+		t.somme();		
 		t.afficherTableauScore();
-		
-		/*System.out.println("-----------------");
-		for (int i = 0; i < t.score.size(); i++) {
-			System.out.println(t.score.get(i));
-		}*/
-		
-		
-		
-		/*int guagn= t.Gagnant();
+		System.out.println();
+		int guagn= t.IndiceGagnant();
 		System.out.println("strategie gagnate "+ strateg[guagn].getClass().getSimpleName());
 		System.out.println();
-		t.VisualiserResTournoi();*/
-		
+
 	
 	}
 

@@ -1,3 +1,16 @@
 /module-info.class
+<<<<<<< HEAD
 /Test/
 /mesStrategies/
+=======
+/.classpath
+/.gitignore
+/.project
+/META-INF/
+/Test/
+/dilemme/
+/lib/
+/main/
+/mesStrategies/
+/strategies/
+>>>>>>> 0675ae6ebe2c84b042133b0589bad3317ad70ae2
