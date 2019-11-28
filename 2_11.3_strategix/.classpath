@@ -7,6 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="/home/fall/S7 M1 MIAGE/pc/jeuxStategieNouvelleversion/jeux-strat/StrategiesMassi.jar"/>
+	<classpathentry kind="lib" path="/Users/ilyes/Desktop/Strat/jeux-strat/StrategiesMassi.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
