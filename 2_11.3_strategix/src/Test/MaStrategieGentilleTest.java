@@ -8,31 +8,30 @@ import junit.framework.Assert;
 import mesStrategies.MaStrategieGentille;
 import strategies.Coup;
 
-class GentilleTest {
+class MaStrategieGentilleTest {
 	MaStrategieGentille g = new MaStrategieGentille();
 	@Test
-	void testGentille() {
+	void testMaStrategieGentille() {
 		Assert.assertNotSame(new MaStrategieGentille(), g);
 	}
+
+	@Test
+	void testGetNom() {
+		for (int i = 0; i < 10; i++) {
+
+			String res = g.getNom();
+			Assert.assertEquals("MaStrategieGentille", res);
+		}
+			}
+	
 
 	@Test
 	void testJouer() {
 		Coup[] c1 = {Coup.C, Coup.T};
 		for (int i = 0; i < 10; i++) {
-			Coup c = g.jouer(c1);
+			Coup c = g.jouer(i,i,c1);
 			Assert.assertEquals(Coup.C, c);
 		}
-	
-		
-	}
-
-	@Test
-	void testGetNom() {
-for (int i = 0; i < 10; i++) {
-
-	String res = g.getNom();
-	Assert.assertEquals("Gentille", res);
-}
 	}
 
 }

@@ -7,10 +7,8 @@ import org.junit.jupiter.api.Test;
 import dilemme.Confrontation;
 import dilemme.Tournoi;
 import junit.framework.Assert;
-import strategies.Coup;
-import strategies.IStrategy;
-import strategies.MaStrategieGentille;
-import strategies.MaStrategieMechante;
+import strategies.*;
+import mesStrategies.*;
 
 class ConfrontationTest {
 	Confrontation conf = new Confrontation();
@@ -31,8 +29,8 @@ class ConfrontationTest {
 		Coup[] c=null;
 		IStrategy s1 = new MaStrategieGentille();
 		IStrategy s2 = new MaStrategieMechante();
-		Coup s11 = s1.jouer(c);
-		Coup s22 = s2.jouer(c);
+		Coup s11 = s1.jouer(0,10, c);
+		Coup s22 = s2.jouer(0,10,c);
 		
 		//test s'il nous renvois les bon coup	
 		Assert.assertEquals(Coup.C, s11);
@@ -62,15 +60,8 @@ class ConfrontationTest {
 	
 	@Test
 	void testGetTabCoupA() {
-		Coup[] c ;
-		c = new  Coup[Tournoi.nbTours];
-		for (int i = 0; i < c.length; i++) {
-			c[i]=null;
-		}
-		for (int i = 0; i < c.length; i++) {
-			Assert.assertEquals(conf.getTabCoupA()[i], c[i]);
-		}
-		
+		Assert.assertEquals(conf.tabCoupA[0], Coup.C);
+		Assert.assertEquals(conf.tabCoupA[1], Coup.C);	
 	}
 
 	

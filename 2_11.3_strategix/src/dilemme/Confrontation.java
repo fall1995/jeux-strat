@@ -5,8 +5,8 @@ import strategies.*;
 
 public class Confrontation {
 
-	private Coup[] tabCoupA = {Coup.C,Coup.C};
-	private Coup[] tabCoupB = {Coup.C,Coup.C};
+	public Coup[] tabCoupA = {Coup.C,Coup.C};
+	public Coup[] tabCoupB = {Coup.C,Coup.C};
 	private  int scoreA ;
 	private  int scoreB ;
 

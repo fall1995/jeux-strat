@@ -8,20 +8,19 @@ import mesStrategies.MaStrategieDonnantDonnantSeuil;
 import mesStrategies.MaStrategieGentille;
 import mesStrategies.MaStrategieMechante;
 import strategies.*;
+import strategies.StrategieDonnantDonnant;
+import strategies.StrategieGentille;
+import strategies.StrategieMechante;
+import strategies.StrategieDonnantDonnantDur;
+import strategies.StrategieDonnantDonnantSeuil;
+
 
 
 public class Tournoi {
 	private IStrategy[] strategies;
 	public static int nbTours;
-	private ArrayList<Integer> score = new ArrayList<Integer>();
+	public ArrayList<Integer> score = new ArrayList<Integer>();
 	public int[] sumScore;
-	public static int  somA=0;
-	public static int  somB=0;
-	
-	
-	
-	public static int  somC=0;
-	public static int  somD=0;
 	
 	public Tournoi(IStrategy[] strategies , int nbTours) {
 		this.strategies= strategies;
@@ -32,7 +31,20 @@ public class Tournoi {
 	
 	}
 	
-	public static IStrategy StretegieCorespo(int num){
+	
+ public void startTournoi() {
+	 for(int i=0; i<strategies.length;i++) {
+		 for(int j=0;j<strategies.length;j++) {
+			Confrontation confrontation = new Confrontation();
+			confrontation.Bataille(strategies[i], strategies[j]);
+			score.add(confrontation.getScoreA());
+			 
+			 
+		 }
+	 }
+ }
+ 
+ public static IStrategy StretegieCorespo(int num){
 		switch (num) {
 		case 1:
 			return new MaStrategieGentille();
@@ -49,24 +61,19 @@ public class Tournoi {
 			return new StrategieGentille();
 		case 7:
 			return new StrategieMechante();
-
+		case 8:
+			return new StrategieDonnantDonnant();
+		case 9:
+			return new StrategieDonnantDonnantDur();
+		case 10:
+			return new StrategieDonnantDonnantSeuil();
+		
 		default:
 			break;
 		}
 		return null;
 		
 	}
- public void startTournoi() {
-	 for(int i=0; i<strategies.length;i++) {
-		 for(int j=0;j<strategies.length;j++) {
-			Confrontation confrontation = new Confrontation();
-			confrontation.Bataille(strategies[i], strategies[j]);
-			score.add(confrontation.getScoreA());
-			 
-			 
-		 }
-	 }
- }
 	
 	public void somme() {
 		int count = 0;

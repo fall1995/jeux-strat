@@ -4,7 +4,7 @@ import strategies.*;
 
 public class MaStrategieDonnantDonnantSeuil implements IStrategy{
 	private static String nom="MaStrategieDonnantDonnantSeuil";
-	private int nbTour;
+	
 	public static  String getNom() {
 		return nom;
 	}
@@ -12,31 +12,31 @@ public class MaStrategieDonnantDonnantSeuil implements IStrategy{
 	
 
 	public MaStrategieDonnantDonnantSeuil() {
-		this.nbTour = 1;
 	}
 
 
 	@Override
 	public Coup jouer(int nbTour,int score, Coup[] coup) {
 		// TODO Auto-generated method stub
-		if (nbTour==1) {
-			nbTour++;
+		if (nbTour==0) {
 			return Coup.C;	
 		} 
-		else if(nbTour % 5 == 0) {
-			int res = score/nbTour ;
+		else if(nbTour+1 % 5 == 0) {
+			int res = score/nbTour+1 ;
 			if(res<2) {
-				nbTour++;
+				
 				return Coup.N;
+			}else {
+				return coup[0];
 			}
 		}
 		else {
-			nbTour++;
+			
 			return coup[0];
 		}
 		
 		
-		return null;
+		
 	}
 
 }
