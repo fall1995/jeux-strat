@@ -15,22 +15,17 @@ public class Tournoi {
 	public static int nbTours;
 	public ArrayList<Integer> score = new ArrayList<Integer>();
 	public int[] sumScore;
-	public static int  somA=0;
-	public static int  somB=0;
+	public IStrategy[] cor;
 	
-	
-	
-	public static int  somC=0;
-	public static int  somD=0;
 	
 	public Tournoi(IStrategy[] strategies , int nbTours) {
 		this.strategies= strategies;
 		this.nbTours=nbTours;
 		sumScore = new int[strategies.length];
-		
-	
 	
 	}
+	
+	
 	
 	public static IStrategy StretegieCorespo(int num){
 		switch (num) {
@@ -105,6 +100,10 @@ public class Tournoi {
 			System.out.println(strategies[i].getClass().getSimpleName()+"     ");
 			System.out.println();
 		}
+		
+	
+		
+
 		/*
 		somme();
 		//afficher le tableau des confrontation et afficher le gagnants
@@ -131,6 +130,125 @@ public class Tournoi {
 	}*/	
 
 		}
+	
+	
+	public void Correspondance() {
+		cor = new IStrategy[score.size()];
+		int i =0;
+		int strat = 0;
+		int compt = 1;
+		
+		while( i<score.size() ) {
+			
+			cor[i]= strategies[strat];
+			if(compt == strategies.length) {
+				strat++;
+				compt =1;
+			}else {
+			compt ++;
+			}
+			i++;
+		}
+	}
+	
+	   public void afficherTableauScore() {
+		   Correspondance();
+		   
+	        int nbTiret = 30;
+	        String barre = "|";
+	        String plus = "+";
+	        String tiret= "-";
+	        for(int i = 0; i<nbTiret ; i++) {
+	            System.out.print(" ");
+	        }
+	        System.out.print(barre);
+	        for(int i = 0; i< this.strategies.length;i++) {
+	            String s = this.strategies[i].getClass().getSimpleName();
+	            int reste = nbTiret - s.length();
+	            System.out.print(s);
+	            for(int h = 0; h< reste ; h++) {
+	                System.out.print(" ");
+	            }
+	            System.out.print(barre);
+	        }
+	        System.out.println("TOTAL");
+	//-----------------------------------        
+	        for(int i = 0; i<nbTiret ; i++) {
+	            System.out.print(tiret);
+	        }
+	        System.out.print(plus);
+	        for(int i = 0; i< this.strategies.length;i++) {
+	            for(int j = 0; j< nbTiret;j++) {
+	                System.out.print(tiret);
+	            }
+	            System.out.print(plus);
+	        }
+	        for(int j = 0; j< nbTiret;j++) {
+	            System.out.print(tiret);
+	        }
+	        System.out.println();
+	        
+	        //---------------------------------
+	        int c = 0;
+	        int l = 0;
+	        int sommeS=0;
+	        for(IStrategy s : this.strategies) {
+	            IStrategy sCourante = s;
+	            String st = sCourante.getClass().getSimpleName();
+	            int reste = nbTiret - st.length();
+	            System.out.print(st);
+	            for(int h = 0; h< reste ; h++) {
+	                System.out.print(" ");
+	            }
+	            System.out.print(barre);
+	            
+
+	         while( (c<this.score.size()) &&(sCourante == this.cor[c])){
+	        	 
+	                String p = Integer.toString(this.score.get(c));
+	                reste = nbTiret - p.length();
+	                System.out.print(p);
+	                for(int h = 0; h< reste ; h++) {
+	                    System.out.print(" ");
+	                }
+	                System.out.print(barre);
+	                c++;
+	            }
+	            
+	            int total = 0;
+	          /*  while(l<this.confrontations.size() && sCourante==this.confrontations.get(l).getS1()) {
+	                total += this.confrontations.get(l).getPointS1();
+	                l++;
+	            }*/
+	            
+	            String points = Integer.toString(sumScore[sommeS]);
+	            reste = nbTiret - points.length();
+	            System.out.print(points);
+	            sommeS++;
+	            for(int h = 0; h< reste ; h++) {
+	                System.out.print(" ");
+	            }
+	            
+	            System.out.println();
+	            
+	            
+	            for(int t = 0; t<nbTiret ; t++) {
+	                System.out.print(tiret);
+	            }
+	            System.out.print(plus);
+	            for(int x = 0; x< this.strategies.length;x++) {
+	                for(int j = 0; j< nbTiret;j++) {
+	                    System.out.print(tiret);
+	                }
+	                System.out.print(plus);
+	            }
+	            for(int j = 0; j< nbTiret;j++) {
+	                System.out.print(tiret);
+	            }
+	            System.out.println();
+	    }
+	        
+	    }
 	
 	
 	public void setscore(int x) {
