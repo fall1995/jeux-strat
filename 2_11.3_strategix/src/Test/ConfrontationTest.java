@@ -26,17 +26,20 @@ class ConfrontationTest {
 	// du coup la je vais tester le contenu de scoreA pour nbtour= 1 et nbtour =2
 	@Test
 	void testBataille() {
-		Coup[] c=null;
+		Coup[] c= {Coup.C, Coup.T};
 		IStrategy s1 = new MaStrategieGentille();
 		IStrategy s2 = new MaStrategieMechante();
+		IStrategy s3 = new MaStrategieDonnantDonnant();
 		Coup s11 = s1.jouer(0,10, c);
 		Coup s22 = s2.jouer(0,10,c);
+		Coup s33 = s3.jouer(0,10,c);
 		
 		//test s'il nous renvois les bon coup	
 		Assert.assertEquals(Coup.C, s11);
 		Assert.assertEquals(Coup.T, s22);
+		Assert.assertEquals(Coup.C, s33);
 		
-		// Tester le contenu de scoreA chaque tour	
+		// Tester le contenu de scoreA chaque toure	
 		Tournoi.nbTours= 1;
 		int scoreRes = 0; 
 		conf.Bataille(s1, s2);

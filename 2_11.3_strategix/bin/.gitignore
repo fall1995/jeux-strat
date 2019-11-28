@@ -1,10 +1,11 @@
 /module-info.class
+/.classpath
+/.gitignore
+/.project
+/META-INF/
+/Test/
 /dilemme/
-<<<<<<< HEAD
-/main/
-/Test/
-/mesStrategies/
 /lib/
-=======
-/Test/
->>>>>>> ea757779c84535690d94ccfe46d3c2e57222ed8d
+/main/
+/mesStrategies/
+/strategies/

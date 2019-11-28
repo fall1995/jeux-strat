@@ -48,7 +48,7 @@ public class Tournoi {
  }
  
 
-	
+	// cette methode prend un entier en parametre et instansie la strategie correspondante
 	public static IStrategy StretegieCorespo(int num){
 
 		switch (num) {
@@ -95,7 +95,7 @@ public class Tournoi {
 
 	}
 	
-	public int Gagnant() {
+	public int IndiceGagnant() {
 		int indic=0;
 		for (int i = 0; i < sumScore.length; i++) {
 			if (sumScore[i]>sumScore[indic]) {
@@ -107,47 +107,7 @@ public class Tournoi {
 		
 	}
 
-	public void VisualiserResTournoi() {
-		System.out.print("                                         ");
-		for (int i = 0; i < strategies.length; i++) {
-			System.out.print(strategies[i].getClass().getSimpleName()+"     ");
-		}
-		System.out.println();
-		
-		for (int i = 0; i < strategies.length; i++) {
-			System.out.println(strategies[i].getClass().getSimpleName()+"     ");
-			System.out.println();
-		}
-		
 	
-		
-
-		/*
-		somme();
-		//afficher le tableau des confrontation et afficher le gagnants
-		
-		System.out.println("                      "+MaStrategieGentille.getNom()+"    "+MaStrategieMechante.getNom()+"    "+StrategieGentille.nomStrat+"    "+StrategieMechante.nomStrat+"    TOTAL");
-		System.out.println();
-		System.out.println(MaStrategieGentille.getNom()+"            "+score.get(0)+"                      "+score.get(1)+ "               "+score.get(2)+"           "+score.get(3)+"         "+somA);
-		System.out.println();
-		System.out.println(MaStrategieMechante.getNom()+"            "+score.get(4)+"                     "+score.get(5)+ "             "+score.get(6)+"          "+score.get(7)+"         "+somB);
-		System.out.println();
-		System.out.println(StrategieGentille.nomStrat+"                       "+score.get(8)+"                      "+score.get(9)+ "               "+score.get(10)+"           "+score.get(11)+"         "+somC);
-		System.out.println();
-		System.out.println(StrategieMechante.nomStrat+"                       "+score.get(12)+"                     "+score.get(13)+ "             "+score.get(14)+"          "+score.get(15)+"         "+somD);
-		System.out.println();
-		System.out.println("Strategie gagnante du tournoi : "+Gagnant());
-		
-		System.out.println();
-		if (sumA>sumB) {
-			System.out.println("Strategie gagnante du tournoi : "+strategies[0].getNom());
-		} else {
-			System.out.println("Strategie gagnante du tournoi : "+strategies[1].getNom());
-		}
-		
-	}*/	
-
-		}
 	
 	
 	public void Correspondance() {
@@ -234,10 +194,7 @@ public class Tournoi {
 	            }
 	            
 	            int total = 0;
-	          /*  while(l<this.confrontations.size() && sCourante==this.confrontations.get(l).getS1()) {
-	                total += this.confrontations.get(l).getPointS1();
-	                l++;
-	            }*/
+	          
 	            
 	            String points = Integer.toString(sumScore[sommeS]);
 	            reste = nbTiret - points.length();
