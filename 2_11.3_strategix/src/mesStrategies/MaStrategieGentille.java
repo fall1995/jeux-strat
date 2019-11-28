@@ -1,4 +1,4 @@
-package strategies;
+package mesStrategies;
 
 import strategies.*;
 

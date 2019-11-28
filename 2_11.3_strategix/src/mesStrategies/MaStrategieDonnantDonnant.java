@@ -1,4 +1,7 @@
-package strategies;
+package mesStrategies;
+
+import strategies.Coup;
+import strategies.IStrategy;
 
 public class MaStrategieDonnantDonnant implements IStrategy {
 
