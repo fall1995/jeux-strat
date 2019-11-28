@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import junit.framework.Assert;
+import mesStrategies.MaStrategieGentille;
 import strategies.Coup;
-import strategies.MaStrategieGentille;
 
 class GentilleTest {
 	MaStrategieGentille g = new MaStrategieGentille();

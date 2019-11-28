@@ -1,4 +1,4 @@
-package strategies;
+package mesStrategies;
 
 import strategies.*;
 
@@ -17,7 +17,7 @@ private static String nom="MaStrategieGentille";
 	}
 	
 	@Override
-	public Coup jouer(int score, Coup[] coup) {
+	public Coup jouer(int nbTour,int score, Coup[] coup) {
 		// TODO Auto-generated method stub
 		return Coup.C;
 	}

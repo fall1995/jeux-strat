@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 
 import dilemme.Tournoi;
 import junit.framework.Assert;
-import strategies.MaStrategieGentille;
+import mesStrategies.MaStrategieGentille;
+import mesStrategies.MaStrategieMechante;
 import strategies.IStrategy;
-import strategies.MaStrategieMechante;
 
 class TournoiTest {
 	IStrategy S1 = new MaStrategieGentille() ;

@@ -1,15 +1,16 @@
-package dilemme;
+package main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import strategies.MaStrategieGentille;
+import dilemme.Tournoi;
+import mesStrategies.MaStrategieDonnantDonnant;
+import mesStrategies.MaStrategieDonnantDonnantDur;
+import mesStrategies.MaStrategieDonnantDonnantSeuil;
+import mesStrategies.MaStrategieGentille;
+import mesStrategies.MaStrategieMechante;
 import strategies.Coup;
 import strategies.IStrategy;
-import strategies.MaStrategieDonnantDonnant;
-import strategies.MaStrategieDonnantDonnantDur;
-import strategies.MaStrategieDonnantDonnantSeuil;
-import strategies.MaStrategieMechante;
 import strategies.StrategieGentille;
 import strategies.StrategieMechante;
 
@@ -34,11 +35,11 @@ public class Main {
 		System.out.println("3 - MaStrategieDonnantDonnant");
 		System.out.println("4 - MaStrategieDonnantDonnantDur");
 		System.out.println("5 - MaStrategieDonnantDonnantSeuil");
-		System.out.println("Veuillez taper le numero de la strategi");
-		System.out.println("Veuillez taper le numero de la strategi");
-		System.out.println("Veuillez taper le numero de la strategi");
-		System.out.println("Veuillez taper le numero de la strategi");
-		System.out.println("Veuillez taper le numero de la strategi");
+		System.out.println("6 - StrategieGentille");
+		System.out.println("7 - StrategieMechante");
+		System.out.println("8 - StrategieDonnantDonnant");
+		System.out.println("9 - StrategieDonnantDonnantDur");
+		System.out.println("10 -StrategieDonnantDonnantSeuil");
 		System.out.println();
 		System.out.println("------------------------------------------");
 		System.out.println();
@@ -57,34 +58,11 @@ public class Main {
 			System.out.println(t.sumScore[i]);
 			
 		}
+		int guagn= t.Gagnant();
+		System.out.println("strategie gagnate "+ strateg[guagn].getClass().getSimpleName());
+		System.out.println();
+		t.VisualiserResTournoi();
 		
-		
-		/* TODO Auto-generated method stub
-		IStrategy S1 = new MaStrategieGentille() ;
-		IStrategy S2 = new MaStrategieMechante() ;
-		//IStrategy S3 = new Gentille() ;
-		//IStrategy S4 = new Mechante() ;
-		
-		IStrategy S3 = new StrategieGentille() ;
-		IStrategy S4 = new StrategieMechante() ;
-
-		
-		IStrategy[] str = {S1,S2,S3,S4};
-		
-		
-		Tournoi t = new Tournoi(str, 20);
-		t.startTournoi();
-		
-		
-		
-		
-		
-		
-		/*Confrontation conf = new Confrontation();
-		Confrontation[] vvv = {conf};
-		t.setConfrontations(vvv);
-		conf.Bataille(S1, S2);*/
-	//	t.VisualiserResTournoi();
 
 	}
 

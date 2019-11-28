@@ -1,7 +1,7 @@
 package strategies;
 
 public interface IStrategy {
-	public Coup jouer(int score,Coup[] coup);
+	public Coup jouer(int numTour,int score,Coup[] coup);
 	
 
 }

@@ -2,6 +2,11 @@ package dilemme;
 
 import java.util.ArrayList;
 
+import mesStrategies.MaStrategieDonnantDonnant;
+import mesStrategies.MaStrategieDonnantDonnantDur;
+import mesStrategies.MaStrategieDonnantDonnantSeuil;
+import mesStrategies.MaStrategieGentille;
+import mesStrategies.MaStrategieMechante;
 import strategies.*;
 
 
@@ -9,10 +14,10 @@ public class Tournoi {
 	private IStrategy[] strategies;
 	public static int nbTours;
 	private ArrayList<Integer> score = new ArrayList<Integer>();
-	int[] sumScore;
-	//private Confrontation[] confrontations;
+	public int[] sumScore;
 	public static int  somA=0;
 	public static int  somB=0;
+	
 	
 	
 	public static int  somC=0;
@@ -20,7 +25,6 @@ public class Tournoi {
 	
 	public Tournoi(IStrategy[] strategies , int nbTours) {
 		this.strategies= strategies;
-		//confrontations = new Confrontation[];
 		this.nbTours=nbTours;
 		sumScore = new int[strategies.length];
 		
@@ -28,7 +32,7 @@ public class Tournoi {
 	
 	}
 	
-	static IStrategy StretegieCorespo(int num){
+	public static IStrategy StretegieCorespo(int num){
 		switch (num) {
 		case 1:
 			return new MaStrategieGentille();
@@ -78,24 +82,30 @@ public class Tournoi {
 
 	}
 	
-	public String Gagnant() {
-		int res1= Math.max(somA, somB);
-		int res2 = Math.max(somC, somD);
-		int max = Math.max(res1, res2);
-		if (max == somA) {
-			return MaStrategieGentille.getNom();
-		}else if (max == somB) {
-			return MaStrategieMechante.getNom();
-		} else if (max == somC) {
-			return StrategieGentille.nomStrat;
-		} else if (max == somD) {
-			return StrategieMechante.nomStrat;
-		} else 
-		return null;
+	public int Gagnant() {
+		int indic=0;
+		for (int i = 0; i < sumScore.length; i++) {
+			if (sumScore[i]>sumScore[indic]) {
+				indic=i;
+			}
+			
+		}
+	return indic;
 		
 	}
 
 	public void VisualiserResTournoi() {
+		System.out.print("                                         ");
+		for (int i = 0; i < strategies.length; i++) {
+			System.out.print(strategies[i].getClass().getSimpleName()+"     ");
+		}
+		System.out.println();
+		
+		for (int i = 0; i < strategies.length; i++) {
+			System.out.println(strategies[i].getClass().getSimpleName()+"     ");
+			System.out.println();
+		}
+		/*
 		somme();
 		//afficher le tableau des confrontation et afficher le gagnants
 		
@@ -110,7 +120,7 @@ public class Tournoi {
 		System.out.println(StrategieMechante.nomStrat+"                       "+score.get(12)+"                     "+score.get(13)+ "             "+score.get(14)+"          "+score.get(15)+"         "+somD);
 		System.out.println();
 		System.out.println("Strategie gagnante du tournoi : "+Gagnant());
-		/*
+		
 		System.out.println();
 		if (sumA>sumB) {
 			System.out.println("Strategie gagnante du tournoi : "+strategies[0].getNom());
@@ -122,18 +132,7 @@ public class Tournoi {
 
 		}
 	
-	public static int getSomA() {
-		return somA;
-	}
-	public static int getSomB() {
-		return somB;
-	}
-	public static int getSomC() {
-		return somC;
-	}
-	public static int getSomD() {
-		return somD;
-	}
+	
 	public void setscore(int x) {
 		score.add(x);
 	}
@@ -141,18 +140,6 @@ public class Tournoi {
 		return score ;
 	}
 	
-	public static void setSomA(int somA) {
-		Tournoi.somA = somA;
-	}
-	public static void setSomB(int somB) {
-		Tournoi.somB = somB;
-	}
-	public static void setSomC(int somC) {
-		Tournoi.somC = somC;
-	}
-	public static void setSomD(int somD) {
-		Tournoi.somD = somD;
-	}
 	
 	
 }

@@ -9,18 +9,12 @@ public class Confrontation {
 	private Coup[] tabCoupB = {Coup.C,Coup.C};
 	private  int scoreA ;
 	private  int scoreB ;
-/*	static int T = 5;
-	static int D = 5;
-	static int C = 5;
-	static int P = 5;
-	static int N = 5;*/
-	
+
 	
 	public Confrontation() {
 		
 		this.scoreA =0;
 		this.scoreB =0;
-	//	initialiserScore(scoreA, scoreB);
 	
 	}
 	
@@ -53,26 +47,18 @@ public class Confrontation {
 	public void Bataille(IStrategy A, IStrategy B) {
 		for (int i = 0; i <Tournoi.nbTours ; i++) {
 			
-			Coup coupA = A.jouer(scoreA,tabCoupB);
+			Coup coupA = A.jouer(i,scoreA,tabCoupB);
 			tabCoupA[1]=tabCoupA[0];
 			tabCoupA[0]= coupA;
-			Coup coupB = B.jouer(scoreB,tabCoupA);
+			Coup coupB = B.jouer(i,scoreB,tabCoupA);
 			tabCoupB[1]=tabCoupB[0];
 			tabCoupB[0]= coupB;
-			//System.out.println(coupB );
 			AttributionPoint(coupA,coupB);
 			
 		}
 		
 		}
 	
-	/*public static void MoiVSMoi() {
-		for (int i = 0; i < Tournoi.nbTours; i++) {
-	
-			scoreA[0]=scoreA[0]+C;
-			scoreB[0]=scoreB[0]+P;
-		}
-	}*/
 	
 public void AttributionPoint(Coup choix1, Coup choix2) {
 	switch(choix1) {

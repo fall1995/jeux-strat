@@ -1,4 +1,7 @@
-package strategies;
+package mesStrategies;
+
+import strategies.Coup;
+import strategies.IStrategy;
 
 public class MaStrategieDonnantDonnant implements IStrategy {
 
@@ -13,7 +16,7 @@ public class MaStrategieDonnantDonnant implements IStrategy {
 	}
 
 	@Override
-	public Coup jouer(int score, Coup[] coup) {
+	public Coup jouer(int nbTour,int score, Coup[] coup) {
 		if (nbTour==1) {
 			nbTour++;
 			return Coup.C;

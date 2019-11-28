@@ -1,4 +1,4 @@
- package strategies;
+ package mesStrategies;
 
 import strategies.*;
 
@@ -14,7 +14,7 @@ public class MaStrategieMechante implements IStrategy{
 	}
 
 	@Override
-	public Coup jouer(int score, Coup[] coup) {
+	public Coup jouer(int nbTour,int score, Coup[] coup) {
 		// TODO Auto-generated method stub
 		return Coup.T;
 	}
