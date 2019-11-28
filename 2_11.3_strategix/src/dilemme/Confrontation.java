@@ -48,9 +48,11 @@ public class Confrontation {
 		for (int i = 0; i <Tournoi.nbTours ; i++) {
 			
 			Coup coupA = A.jouer(i,scoreA,tabCoupB);
+			System.out.println(A.getClass()+" tour : "+i+coupA);
 			tabCoupA[1]=tabCoupA[0];
 			tabCoupA[0]= coupA;
 			Coup coupB = B.jouer(i,scoreB,tabCoupA);
+			System.out.println(B.getClass()+" tour :"+i+coupB);
 			tabCoupB[1]=tabCoupB[0];
 			tabCoupB[0]= coupB;
 			AttributionPoint(coupA,coupB);

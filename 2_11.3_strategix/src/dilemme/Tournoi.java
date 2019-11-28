@@ -13,7 +13,7 @@ import strategies.*;
 public class Tournoi {
 	private IStrategy[] strategies;
 	public static int nbTours;
-	private ArrayList<Integer> score = new ArrayList<Integer>();
+	public ArrayList<Integer> score = new ArrayList<Integer>();
 	public int[] sumScore;
 	public static int  somA=0;
 	public static int  somB=0;

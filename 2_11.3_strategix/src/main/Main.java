@@ -48,7 +48,6 @@ public class Main {
 			System.out.println("taper le numero de la strategi");
 			int num = sc.nextInt();
 			strateg[i]= Tournoi.StretegieCorespo(num);
-			
 		}
 		
 		Tournoi t = new Tournoi(strateg, nbTours);
@@ -58,10 +57,16 @@ public class Main {
 			System.out.println(t.sumScore[i]);
 			
 		}
-		int guagn= t.Gagnant();
+		System.out.println("-----------------");
+		for (int i = 0; i < t.score.size(); i++) {
+			System.out.println(t.score.get(i));
+		}
+		
+		
+		/*int guagn= t.Gagnant();
 		System.out.println("strategie gagnate "+ strateg[guagn].getClass().getSimpleName());
 		System.out.println();
-		t.VisualiserResTournoi();
+		t.VisualiserResTournoi();*/
 		
 
 	}
