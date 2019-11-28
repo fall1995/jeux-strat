@@ -14,7 +14,7 @@ import strategies.StrategieMechante;
 import strategies.StrategieDonnantDonnantDur;
 import strategies.StrategieDonnantDonnantSeuil;
 
-
+import strategies.IStrategy;
 
 
 public class Main {
@@ -57,10 +57,15 @@ public class Main {
 			System.out.println(t.sumScore[i]);
 			
 		}
-		System.out.println("-----------------");
+		
+		
+		t.afficherTableauScore();
+		
+		/*System.out.println("-----------------");
 		for (int i = 0; i < t.score.size(); i++) {
 			System.out.println(t.score.get(i));
-		}
+		}*/
+		
 		
 		
 		/*int guagn= t.Gagnant();
@@ -68,7 +73,7 @@ public class Main {
 		System.out.println();
 		t.VisualiserResTournoi();*/
 		
-
+	
 	}
 
 }
