@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import junit.framework.Assert;
 import mesStrategies.*;
+import strategies.Coup;
 
 class MaStrategieDonnantDonnantTest {
 	MaStrategieDonnantDonnant dd = new MaStrategieDonnantDonnant();
@@ -15,20 +16,18 @@ class MaStrategieDonnantDonnantTest {
 		for (int i = 0; i < 10; i++) {
 
 			String res = dd.getNom();
-			Assert.assertEquals("Gentille", res);
+			Assert.assertEquals("MaStrategieDonnantDonnant", res);
 		}
 			}
 
-	
-
-	@Test
-	void testMaStrategieDonnantDonnant() {
-		fail("Not yet implemented");
-	}
-
 	@Test
 	void testJouer() {
-		fail("Not yet implemented");
+		
+		Coup[] c = {Coup.T, Coup.C};
+		Coup c1 = dd.jouer(0, 100, c);
+		Coup c2 = dd.jouer(2, 100, c);
+		Assert.assertEquals(Coup.C, c1);
+		Assert.assertEquals(Coup.T, c2);
 	}
 
 }
